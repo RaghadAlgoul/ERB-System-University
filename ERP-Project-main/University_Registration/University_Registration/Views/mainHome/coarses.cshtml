@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "coarses";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+@model IEnumerable<University_Registration.Models.Major>
+
+
+
+<!-- Breadcrumb section -->
+<div class="site-breadcrumb">
+    <div class="container">
+        <a href="#"><i class="fa fa-home"></i> Home</a> <i class="fa fa-angle-right"></i>
+        <span>Courses</span>
+    </div>
+</div>
+<!-- Breadcrumb section end -->
+<!-- Courses section -->
+<section class="full-courses-section spad pt-0">
+    <div class="container">
+        <a class="row" href="/Student/StudentDashBoard">
+            @foreach (var item in Model)
+            {
+                
+                <div class="col-lg-4 col-md-6 course-item">
+                    <div class="course-thumb">
+                        <img height="190px" width="300px" src="../../Images/@item.Major_Image" alt="">
+                        <div class="course-cat">
+                            <span>@item.Name</span>
+                        </div>
+                    </div>
+                    <div class="course-info">
+                        <h4>@item.Description</h4>
+                        <h4 class="cource-price">@item.price<span>/One Hour</span></h4>
+                    </div>
+
+                </div>
+
+
+            }
+
+        </a>
+
+    </div>
+</section>
+<!-- Courses section end-->

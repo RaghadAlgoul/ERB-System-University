@@ -1,0 +1,158 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+
+}
+
+<style>
+
+    html {
+        box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    body * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font: normal 100%/1.15 "Merriweather", serif;
+        background-color: #7ed0f2;
+        color: #fff;
+    }
+
+    .wrapper {
+        position: relative;
+        max-width: 1298px;
+        height: auto;
+        margin: 2em auto 0 auto;
+    }
+
+    /* https://www.flaticon.com/authors/vectors-market */
+    /* https://www.flaticon.com/authors/icomoon */
+    .box {
+        max-width: 70%;
+        min-height: auto;
+        margin: 0 auto;
+        padding: 1em 1em;
+        text-align: center;
+        background: url("https://www.dropbox.com/s/xq0841cp3icnuqd/flame.png?raw=1") no-repeat top 10em center/128px 128px, transparent url("https://www.dropbox.com/s/w7qqrcvhlx3pwnf/desktop-pc.png?raw=1") no-repeat top 13em center/128px 128px;
+    }
+
+    h1, p:not(:last-of-type) {
+        text-shadow: 0 0 6px #216f79;
+    }
+
+    h1 {
+        margin: 0 0 1rem 0;
+        font-size: 8em;
+    }
+
+    p {
+        margin-bottom: 0.5em;
+        font-size: 3em;
+    }
+
+        p:first-of-type {
+            margin-top: 4em;
+        }
+
+        p > a {
+            border-bottom: 1px dashed #216f79;
+            font-style: italic;
+            text-decoration: none;
+            color: #216f79;
+        }
+
+            p > a:hover {
+                text-shadow: 0 0 6px #216f79;
+            }
+
+        p img {
+            vertical-align: bottom;
+        }
+</style>
+
+@section active{
+
+
+    <ul class="side-menu top">
+        <li class="active">
+            <a href="/FacilitiesAdmin/Index">
+                <i class="fa-solid fa-building-columns"></i>
+                <span class="text">Facilities</span>
+            </a>
+        </li>
+        <li>
+            <a href="/MajorsAdmin/Index">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="text">Majors</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectsAdmin/Index">
+                <i class="fa-solid fa-book"></i>
+                <span class="text">Courses</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Index">
+                <i class="fa-sharp fa-solid fa-users"></i>
+                <span class="text">Students</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Acceptt">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span class="text">Accept Student</span>
+            </a>
+        </li>
+        <li>
+            <a href="/StudentsAdmin/Rejectt">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                <span class="text">Reject Student</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index">
+                <i class="fa-solid fa-money-bill"></i>
+                <span class="text">Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index2">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span class="text">Progress Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/staticAdmin/Index">
+                <i class="fas fa-chart-bar"></i>
+                <span class="text">statistics </span>
+            </a>
+        </li>
+    </ul>
+
+
+}
+
+<div class="wrapper">
+    <div class="box">
+        <h1>Erorr</h1>
+        <p>Sorry, because this Email is not valid.</p>
+        <p>&#58;&#40;</p>
+        <p><a href="/StudentsAdmin/Index">Back to Home!</a></p>
+    </div>
+</div>

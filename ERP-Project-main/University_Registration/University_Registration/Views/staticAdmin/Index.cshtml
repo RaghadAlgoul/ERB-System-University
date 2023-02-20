@@ -1,0 +1,288 @@
+﻿@model int[]
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+}
+
+
+
+@section header{
+    <a href="#" class="nav-link">Statistics</a>
+}
+
+@section active{
+    <ul class="side-menu top">
+        <li>
+            <a href="/FacilitiesAdmin/Index">
+                <i class="fa-solid fa-building-columns"></i>
+                <span class="text">Facilities</span>
+            </a>
+        </li>
+        <li>
+            <a href="/MajorsAdmin/Index">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="text">Majors</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectsAdmin/Index">
+                <i class="fa-solid fa-book"></i>
+                <span class="text">Courses</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Index">
+                <i class="fa-sharp fa-solid fa-users"></i>
+                <span class="text">Students</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Acceptt">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span class="text">Accept Student</span>
+            </a>
+        </li>
+        <li>
+            <a href="/StudentsAdmin/Rejectt">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                <span class="text">Reject Student</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index">
+                <i class="fa-solid fa-money-bill"></i>
+                <span class="text">Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index2">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span class="text">Progress Payment</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="/staticAdmin/Index">
+                <i class="fas fa-chart-bar"></i>
+                <span class="text">statistics </span>
+            </a>
+        </li>
+    </ul>
+}
+
+<style>
+    .chartMenu {
+        height: 40px;
+        background: #1A1A1A;
+        color: rgba(54, 162, 235, 1);
+    }
+
+        .chartMenu p {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+    .chartCard {
+        height: calc(100vh - 40px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .chartBox {
+        width: 700px;
+        padding: 20px;
+        border-radius: 20px;
+        border: solid 3px rgba(54, 162, 235, 1);
+        background: white;
+    }
+</style>
+
+<div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+    <!-- Card -->
+    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="p-3 mr-4 text-orange-500 bg-orange-100 rounded-full dark:text-orange-100 dark:bg-orange-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path>
+            </svg>
+        </div>
+        <div>
+            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Number of Students
+            </p>
+            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                @ViewBag.Students
+            </p>
+        </div>
+    </div>
+    <!-- Card -->
+    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="p-3 mr-4 text-green-500 bg-green-100 rounded-full dark:text-green-100 dark:bg-green-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd"
+                      d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                      clip-rule="evenodd"></path>
+            </svg>
+        </div>
+        <div>
+            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Total Revenue
+            </p>
+            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                @ViewBag.Amount
+
+            </p>
+        </div>
+    </div>
+    <!-- Card -->
+    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="p-3 mr-4 text-blue-500 bg-blue-100 rounded-full dark:text-blue-100 dark:bg-blue-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="width:5px;height:1px;border-radius:50%;">
+                <i class="fa-solid fa-building-columns"></i>
+            </svg>
+        </div>
+        <div>
+            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Number Of Facilities
+            </p>
+            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                @ViewBag.Facilitynumber
+            </p>
+        </div>
+    </div>
+    <!-- Card -->
+    <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+        <div class="p-3 mr-4 text-teal-500 bg-teal-100 rounded-full dark:text-teal-100 dark:bg-teal-500">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" style="width:5px;height:1px;border-radius:50%;">
+                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+
+            </svg>
+        </div>
+        <div>
+            <p class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                Number of Majors
+            </p>
+            <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
+                @ViewBag.numberofmajor
+
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="chartCard">
+    <div class="chartBox">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
+<script>
+  var chartData = @Html.Raw(Json.Encode(Model));
+    // setup
+    const options = {
+        plugins: {
+            title: {
+                display: true,
+                text: "Payment Status"
+            }
+        }
+    };
+    const data = {
+        labels: ['Unpayment', 'Payment'],
+        datasets: [{
+            label: "Payment",
+            data: chartData,
+            backgroundColor: [
+                'rgba(255, 26, 104, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(0, 0, 0, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 26, 104, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(0, 0, 0, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+    // config
+    const config = {
+        type: 'pie',
+        data,
+        options
+
+
+    };
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
+
+<script>
+        //pie
+    //var ctxP = document.getElementById("pieChart").getContext('2d');
+    //var myPieChart = new Chart(ctxP, {
+    //    type: 'pie',
+    //    data: {
+    //        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+    //        datasets: [{
+    //            data: [300, 50, 100, 40, 120],
+    //            backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+    //            hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+    //        }]
+    //    },
+    //    options: {
+    //        responsive: true
+    //    }
+    //});
+    //var ctx = document.getElementById("pieChart");
+    //ctx.height = 300;
+    //var myChart = new Chart(ctx, {
+    //    type: 'pie',
+    //    data: {
+    //        datasets: [{
+    //            data: [10, 20, 30, 40],
+    //            backgroundColor: [
+    //                "#2b98f0",
+    //                "rgba(0, 194, 146,0.7)",
+    //                "#f3e53d",
+    //                "#ab8ce4"
+    //            ],
+    //            hoverBackgroundColor: [
+    //                "#a0d0f8",
+    //                "#99ffe6",
+    //                "#f9f19f",
+    //                "#e1d6f5"
+    //            ]
+    //        }],
+    //        labels: [
+    //            "Carpets",
+    //            "Bedroom",
+    //            "Car",
+    //            "Pool"
+    //        ]
+    //    },
+    //});
+</script>

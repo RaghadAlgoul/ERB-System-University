@@ -1,0 +1,86 @@
+﻿@using University_Registration.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_loginLayout.cshtml";
+
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+
+@*bootstrab*@
+
+
+<div class="d-lg-flex half ">
+    <div class="bg order-1 " style="background-image: url('@Url.Content("~/login-form-06/images/gra.png")');width:90%">
+    </div>
+
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <h3>Sign In</h3>
+                </div>
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "", role = "form" }))
+                {@Html.AntiForgeryToken()
+                <div class="form-group first">
+                    <label for="username">Username</label>
+                    @*<input type="text" class="form-control" id="username">*@
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group last mb-3">
+                    <label for="password">Password</label>
+                    @*<input type="password" class="form-control" id="password">*@
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0">
+                        <span class="caption">Remember me</span>
+                        <input type="checkbox" checked="checked" />
+                        <div class="control__indicator"></div>
+                    </label>
+                    @Html.ActionLink("Register as a new user", "Register", new { }, new { style = "margin-left: 20px;" })
+
+                    @*<span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>*@
+                </div>
+
+                <input type="submit" value="Log In" class="btn btn-block btn-primary" style="background-color: #F6783B">
+
+
+                
+            }
+            </div>
+        </div>
+    </div>
+</div>
+    @*<div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>*@
+
+
+
+    <script src="~/login-form-06/jsjs/jquery-3.3.1.min.js"></script>
+    <script src="~/login-form-06/jsjs/popper.min.js"></script>
+    <script src="~/login-form-06/js/bootstrap.min.js"></script>
+    <script src="~/login-form-06/js/main.js"></script>
+
+
+
+
+
+
+    @*bootstrab*@
+
+
+
+
+
+
+

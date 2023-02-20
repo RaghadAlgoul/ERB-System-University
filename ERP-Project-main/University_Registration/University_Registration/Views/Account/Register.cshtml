@@ -1,0 +1,144 @@
+﻿@model University_Registration.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+
+
+    Layout = "~/Views/Shared/_loginLayout.cshtml";
+}
+
+<style>
+    .wrap-input100 {
+        height: 65px !important
+    }
+
+    .email-input {
+        height: 65px !important;
+        background: transparent !important;
+    }
+</style>
+
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+
+
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "login100-form validate-form", role = "form" }))
+            {@Html.AntiForgeryToken()
+            <span class="login100-form-title p-b-43">
+                Sign Up
+            </span>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+
+            <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                @*<input class="input100" type="text" name="email" id="email-input">*@
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control email-input ", id = "email-input", placeholder = "Email" } )
+
+                <span class="focus-input100"></span>
+            </div>
+
+
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+                @*<input class="input100" type="password" name="pass">*@
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control email-input", placeholder = "Password" })
+                <span class="focus-input100"></span>
+                
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Password is required">
+                @*<input class="input100" type="password" name="pass">*@
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control email-input", placeholder = "Confirm Password" })
+                <span class="focus-input100"></span>
+                
+            </div>
+
+            <div class="flex-sb-m w-full p-t-3 p-b-32">
+                @*<div class="contact100-form-checkbox">
+                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                    <label class="label-checkbox100" for="ckb1">
+                        Remember me
+                    </label>
+                </div>*@
+
+                <div>
+                    @Html.ActionLink("you already have account?", "Login", new { }, new { style = "" })
+                </div>
+            </div>
+
+
+            <div class="container-login100-form-btn">
+
+                <input type="submit" class="login100-form-btn" value="Register" style="background-color: #F6783B" />
+
+                @*<button class="login100-form-btn">
+                Login
+            </button>*@
+            </div>
+
+            <div class="text-center p-t-46 p-b-20">
+                <span class="txt2">
+                    or sign up using
+                </span>
+            </div>
+
+            <div class="login100-form-social flex-c-m">
+                <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                    <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                </a>
+
+                <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+        }
+
+
+            <div class="login100-more" style="background-image: url('@Url.Content("~/signup/images/signup.jpeg")');">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--===============================================================================================-->
+<script src="~/signup/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/signup/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/signup/vendor/bootstrap/js/popper.js"></script>
+<script src="~/signup/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/signup/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/signup/vendor/daterangepicker/moment.min.js"></script>
+<script src="~/signup/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="~/signup/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="~/signup/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

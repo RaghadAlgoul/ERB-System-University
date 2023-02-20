@@ -1,0 +1,139 @@
+﻿@model University_Registration.Models.Section
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+}
+@section header{
+
+    <a href="#" class="nav-link">Sections</a>
+
+}
+@section active{
+
+
+    <ul class="side-menu top">
+        <li>
+            <a href="/FacilitiesAdmin/Index">
+                <i class="fa-solid fa-building-columns"></i>
+                <span class="text">Facilities</span>
+            </a>
+        </li>
+        <li>
+            <a href="/MajorsAdmin/Index">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="text">Majors</span>
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="/SubjectsAdmin/Index">
+                <i class="fa-solid fa-book"></i>
+                <span class="text">Courses</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Index">
+                <i class="fa-sharp fa-solid fa-users"></i>
+                <span class="text">Students</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Acceptt">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span class="text">Accept Student</span>
+            </a>
+        </li>
+        <li>
+            <a href="/StudentsAdmin/Rejectt">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                <span class="text">Reject Student</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index">
+                <i class="fa-solid fa-money-bill"></i>
+                <span class="text">Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index2">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span class="text">Progress Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/staticAdmin/Index">
+                <i class="fas fa-chart-bar"></i>
+                <span class="text">statistics </span>
+            </a>
+        </li>
+    </ul>
+
+
+}
+<style>
+    tr td:first-child {
+        padding: 1rem;
+    }
+</style>
+<table>
+    <tr>
+        <td>
+            Section Number
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.SectionNumber)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Section Time
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.SectionTime)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Section Day
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.SectionDay)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Subject Name
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.Subject.Name)
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-success" />
+        <a href="/SubjectsAdmin/Index" class="btn btn-primary">Back to List</a>
+    </div>
+}

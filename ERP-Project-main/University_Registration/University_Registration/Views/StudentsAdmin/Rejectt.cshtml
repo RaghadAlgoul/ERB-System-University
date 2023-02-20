@@ -1,0 +1,196 @@
+﻿@model IEnumerable<University_Registration.Models.Student>
+
+@{
+    ViewBag.Title = "Rejectt";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+}
+
+@section active{
+
+
+    <ul class="side-menu top">
+        <li>
+            <a href="/FacilitiesAdmin/Index">
+                <i class="fa-solid fa-building-columns"></i>
+                <span class="text">Facilities</span>
+            </a>
+        </li>
+        <li>
+            <a href="/MajorsAdmin/Index">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="text">Majors</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectsAdmin/Index">
+                <i class="fa-solid fa-book"></i>
+                <span class="text">Courses</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Index">
+                <i class="fa-sharp fa-solid fa-users"></i>
+                <span class="text">Students</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Acceptt">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span class="text">Accept Student</span>
+            </a>
+        </li>
+        <li class="active">
+            <a href="/StudentsAdmin/Rejectt">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                <span class="text">Reject Student</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index">
+                <i class="fa-solid fa-money-bill"></i>
+                <span class="text">Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index2">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span class="text">Progress Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/staticAdmin/Index">
+                <i class="fas fa-chart-bar"></i>
+                <span class="text">statistics </span>
+            </a>
+        </li>
+    </ul>
+
+
+}
+
+@section header{
+
+    <a href="#" class="nav-link">Rejected Student</a>
+
+}
+@using (Html.BeginForm("Index4"))
+{
+    <div class="input-group justify-center">
+        <div class="form-outline">
+            <input type="search" id="form1" name="search" class="form-control" placeholder="Seach by Student Name" />
+        </div>
+        <input type="Submit" value="Search" class="btn btn-secondary" style="margin-bottom:1%" />
+    </div>
+}
+<table class="table table-hover table-striped table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+
+
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Grad)
+        </th>
+        <th>
+           Image
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.PersonalIdFile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CertificateFile)
+        </th>
+        
+        <th>
+           Course Name
+        </th>
+        <th></th>
+    </tr>
+
+
+
+
+    @foreach (var item in Model)
+    {
+        if (item.Status == 2)
+
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grad)
+                </td>
+                <td>
+                    <img src="~/Images/@item.Pic" style="width:60px;height:60px;" class="thumbnail" />
+                </td>
+              
+                <td>
+                    <a href="@item.PersonalIdFile" download>@item.PersonalIdFile</a>
+                </td>
+                <td>
+                    <a href="@item.CertificateFile" download>@item.CertificateFile</a>
+                </td>
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Major.Name)
+                </td>
+                <td>
+
+
+
+
+                        @Html.ActionLink("Accept", "Accept", new { id = item.Student_ID }, new {@class="btn btn-primary"})
+
+
+                </td>
+            </tr>
+
+
+
+        }
+
+    }
+
+</table>
+
+@*<script>
+    function showAlert(id) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be Accept The Student!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Accept it!'
+
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );
+                window.location.href = '/StudentsAdmin/Reject/' + id;
+            }
+        });
+
+    }
+</script>*@

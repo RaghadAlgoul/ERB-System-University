@@ -1,0 +1,236 @@
+﻿@model University_Registration.Models.Student
+
+@{
+    ViewBag.Title = "STDform";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<style>
+    /*.formm{
+        width:80%;
+        margin-left:10%;
+    }
+    .gradient-custom {
+        margin-top:-16px;*/
+    /* fallback for old browsers */
+    /background: #f093fb;/
+    /* Chrome 10-25, Safari 5.1-6 */
+    /background: -webkit-linear-gradient(to bottom right, rgb(255, 106, 0), rgb(236, 187, 152));/
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*background: linear-gradient(to bottom right, rgb(255, 106, 0), rgb(236, 187, 152))
+    }
+
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+
+    .card-registration .select-arrow {
+        top: 13px;
+    }*/
+    .gradient-custom {
+        background: #f093fb;
+        background: -webkit-linear-gradient(to bottom right, #020031, rgb(236, 187, 152));
+        background: linear-gradient(to bottom right, #020031, rgb(236, 187, 152));
+    }
+
+    .button11 {
+        background-color: #f6783a;
+    }
+    /*}
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+</style>
+
+
+@using (Html.BeginForm("STDform", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="gradient-custom">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <section class="h-100 gradient-custom">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col">
+                        <div class="card card-registration my-4">
+                            <div class="row g-0">
+                                <div class="col-xl-6 d-none d-xl-block">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+                                         alt="Sample photo" class="img-fluid"
+                                         style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="card-body p-md-5 text-black">
+                                        <h3 class="mb-5 text-uppercase">Request Form</h3>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6> @Html.LabelFor(model => model.Name, "Full Name", htmlAttributes: new { @class = "control-label" })</h6>
+                                                    <div>
+                                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6> @Html.LabelFor(model => model.NationalNum, "National Number", htmlAttributes: new { @class = "control-label" })</h6>
+
+                                                    <div>
+                                                        @Html.EditorFor(model => model.NationalNum, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.NationalNum, "", new { @class = "text-danger" })
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6>@Html.LabelFor(model => model.Grad, "High School Grade", htmlAttributes: (new { @class = "control-label" }))</h6>
+                                                    <div>
+                                                        @Html.EditorFor(model => model.Grad, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Grad, "", new { @class = "text-danger" })
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6>
+                                                        @Html.LabelFor(model => model.PhoneNumber, "Phone Number", htmlAttributes: new { @class = "control-label" })
+                                                    </h6>
+                                                    <div>
+                                                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row">
+
+                                            <div class="col-md-6 mb-4">
+                                                <div>
+                                                    <h6>
+                                                        @Html.LabelFor(model => model.Pic, "Personal Image", htmlAttributes: new { @class = "control-label" })
+                                                    </h6>
+                                                    <div class="col-md-10">
+
+                                                        <input type="file" name="Pic1" class="form-control-file" accept="image/*" required />
+                                                        @Html.ValidationMessageFor(model => model.Pic, "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div>
+                                                    <h6>
+                                                        @Html.LabelFor(model => model.PersonalIdFile, "Identity Certificate", htmlAttributes: new { @class = "control-label" })
+                                                    </h6>
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="PersonalIdFile1" class="form-control-file" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
+                                                        @Html.ValidationMessageFor(model => model.PersonalIdFile, "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6>
+                                                        @Html.LabelFor(model => model.CertificateFile, "High School Certificate", htmlAttributes: new { @class = "control-label" })
+                                                    </h6>
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="CertificateFile1" class="form-control-file" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
+                                                        @Html.ValidationMessageFor(model => model.CertificateFile, "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6>
+                                                        @Html.LabelFor(model => model.BirthFile, "Birth Certificate", htmlAttributes: new { @class = "control-label" })
+                                                    </h6>
+                                                    <div class="col-md-10">
+                                                        <input type="file" name="BirthFile1" class="form-control-file" accept=".doc,.docx,.xml,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required />
+                                                        @Html.ValidationMessageFor(model => model.BirthFile, "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6>@Html.LabelFor(model => model.Gender, "Gender", htmlAttributes: new { @class = "control-label" })</h6>
+                                                    <div>
+                                                        <div class="checkbox">
+
+                                                            @Html.RadioButton("Gender", "false", false, new { id = "male" }) Male
+
+                                                            @Html.RadioButton("Gender", "true", false, new { id = "female" }) Female
+
+                                                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 mb-4">
+                                                <div class="form-outline">
+                                                    <h6>
+                                                        @Html.LabelFor(model => model.Major_ID, "Major", htmlAttributes: new { @class = "control-label" })
+                                                    </h6>
+                                                    <div class="col-md-10">
+                                                        @Html.DropDownList("Major_ID", null, htmlAttributes: new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.Major_ID, "", new { @class = "text-danger" })
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end pt-3">
+                                            <div class=" col-md-6">
+                                                <input type="submit" value="Submit" class="btn button11 btn-lg col-md-6" />
+                                            </div>
+                                            <div class=" col-md-6">
+                                                <a href="/Home/Index" class="btn button11 btn-lg" style="color:black;">Home</a>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+}

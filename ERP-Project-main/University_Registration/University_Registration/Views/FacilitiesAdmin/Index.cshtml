@@ -1,0 +1,138 @@
+﻿@model IEnumerable<University_Registration.Models.Facility>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+}
+
+@section header{
+
+    <a href="#" class="nav-link">Facilities</a>
+
+}
+
+@section active{
+
+
+    <ul class="side-menu top">
+        <li class="active">
+            <a href="/FacilitiesAdmin/Index">
+                <i class="fa-solid fa-building-columns"></i>
+                <span class="text">Facilities</span>
+            </a>
+        </li>
+        <li>
+            <a href="/MajorsAdmin/Index">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <span class="text">Majors</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectsAdmin/Index">
+                <i class="fa-solid fa-book"></i>
+                <span class="text">Courses</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Index">
+                <i class="fa-sharp fa-solid fa-users"></i>
+                <span class="text">Students</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/StudentsAdmin/Acceptt">
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <span class="text">Accept Student</span>
+            </a>
+        </li>
+        <li>
+            <a href="/StudentsAdmin/Rejectt">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                <span class="text">Reject Student</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index">
+                <i class="fa-solid fa-money-bill"></i>
+                <span class="text">Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/SubjectRegistrationsAdmin/Index2">
+                <i class="fa-solid fa-dollar-sign"></i>
+                <span class="text">Progress Payment</span>
+            </a>
+        </li>
+        <li>
+            <a href="/staticAdmin/Index">
+                <i class="fas fa-chart-bar"></i>
+                <span class="text">statistics </span>
+            </a>
+        </li>
+    </ul>
+
+
+}
+
+
+
+<style>
+    tr td {
+        padding: 1rem;
+        width: 200px;
+    }
+</style>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info" })
+</p>
+
+@using (Html.BeginForm("Index2"))
+{
+    <div class="input-group justify-center">
+        <div class="form-outline">
+            <input type="search" id="form1" name="search" class="form-control" placeholder="Seach by facility Name" />
+        </div>
+        <input type="Submit" value="Search" class="btn btn-secondary" style="margin-bottom:1%" />
+    </div>
+}
+
+<table class="table table-responsive table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Facility Image
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <img src="~/Images/@item.Facility_Image" style="width:150px;height:150px;" class="thumbnail" />
+            </td>
+            <td style="padding-left:1rem;">
+                @Html.ActionLink("Edit", "Edit", new { id = item.Facility_ID }, new { @class = "btn btn-success" })
+                @Html.ActionLink("Details", "Details", new { id = item.Facility_ID }, new { @class = "btn btn-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.Facility_ID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>

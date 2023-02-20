@@ -1,0 +1,138 @@
+﻿@model University_Registration.Models.Student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+}
+
+
+<table>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+
+
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Email)
+
+        </td>
+        <td>
+            </dt>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Password)
+
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Password)
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.NationalNum)
+
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.NationalNum)
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Grad)
+
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Grad)
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Pic)
+
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Pic)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Status)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.Status)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.PersonalIdFile)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.PersonalIdFile)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.CertificateFile)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.CertificateFile)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Gender)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.Gender)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.Major.Name)
+        </td>
+
+        <td>
+            @Html.DisplayFor(model => model.Major.Name)
+        </td>
+    </tr>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Student_ID }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</p>

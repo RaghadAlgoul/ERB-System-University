@@ -1,0 +1,129 @@
+﻿@model IEnumerable<University_Registration.Models.Student>
+
+@{string z = Session["id"].ToString();
+    var information = Model.FirstOrDefault(x => x.Id == z); }
+
+
+
+    <aside class="sidebar" data-sidebar style="background-color: #020031;">
+
+        <div class="sidebar-info">
+
+            <figure class="">
+
+                <img src="~/images/@information.Pic" alt="Richard hanrick" width="150" style="border-radius:50%">
+
+            </figure>
+
+
+
+
+
+            <div class="info-content">
+                <h1 class="name" title="Richard hanrick">@information.Name  </h1>
+
+            </div>
+            <a class="btn" href="~/MainPay/Mainpayy" style="background-color:#F6783A ;color:white">Fill Wallet</a>
+            <button class="info_more-btn" data-sidebar-btn>
+                <span>Show Contacts</span>
+
+                <ion-icon name="chevron-down"></ion-icon>
+            </button>
+
+        </div>
+
+        <div class="sidebar-info_more">
+
+            <div class="separator"></div>
+
+            <ul class="contacts-list">
+
+                <li class="contact-item" style="background-color:transparent;">
+
+                    <div class="icon-box">
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+                    <!--<div class="contact-info">
+                    <ion-icon name="mail-outline"></ion-icon>-->
+                    
+                    <!--</div>-->
+
+                    <div class="contact-info">
+                        <p class="contact-title">Email</p>
+
+                        <a href="mailto:@information.Email" class="contact-link">@information.Email</a>
+                    </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                    <div class="icon-box">
+                        <ion-icon name="phone-portrait-outline"></ion-icon>
+                    </div>
+
+                    <div class="contact-info">
+                        <p class="contact-title">Phone</p>
+
+                        <a href="tel:+12133522795" class="contact-link">@information.PhoneNumber</a>
+                    </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                    <div class="icon-box">
+                        <i class="fa-solid fa-building-columns" style="font-size:15px"></i>
+                    </div>
+
+                    <div class="contact-info">
+                        <p class="contact-title">major</p>
+
+                        <time>@information.Major.Name</time>
+                    </div>
+
+                </li>
+
+                <li class="contact-item">
+
+                    <div class="icon-box">
+                        <i class="fa-solid fa-user-tie" style="font-size:15px"></i>
+                    </div>
+
+                    <div class="contact-info">
+                        <p class="contact-title">National number</p>
+
+                        <p>@information.NationalNum</p>
+                    </div>
+
+                </li>
+
+            </ul>
+
+            <div class="separator"></div>
+
+            <ul class="social-list">
+
+                <li class="social-item">
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                </li>
+
+                <li class="social-item">
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                </li>
+
+                <li class="social-item">
+                    <a href="#" class="social-link">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </aside>

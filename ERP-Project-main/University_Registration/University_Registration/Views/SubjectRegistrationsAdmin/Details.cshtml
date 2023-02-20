@@ -1,0 +1,59 @@
+﻿@model University_Registration.Models.SubjectRegistration
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Adminlayout2.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SubjectRegistration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.SectionDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.SectionDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubjectRegistrations_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

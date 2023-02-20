@@ -1,0 +1,922 @@
+﻿
+@model Tuple<List<University_Registration.Models.Subject>, List<University_Registration.Models.SubjectRegistration>>
+
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vCard - Personal Portfolio</title>
+
+<!--
+  - favicon
+-->
+<link rel="shortcut icon" href="~/vcard-personal-portfolio-master/assets/images/logo.ico" type="image/x-icon">
+
+<!--
+  - custom css link
+-->
+<link rel="stylesheet" href="~/vcard-personal-portfolio-master/assets/css/style.css">
+
+<!--
+  - google font link
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+
+    .navbar-link {
+        font-weight: bold;
+    }
+
+    .service-item::before {
+        background-color: white;
+    }
+
+    .service-item p {
+        color: black;
+    }
+
+    .about-text p {
+        color: white !important;
+    }
+
+    .contacts-list i {
+        font-size: 30px;
+        color: white
+    }
+
+    .icon-box {
+    }
+
+        .icon-box::before {
+            background-color: transparent;
+        }
+
+
+
+        .icon-box :host .ionicon {
+            stroke: currentcolor;
+            color: white !important;
+        }
+
+    .icon-inner, .ionicon, svg {
+        color: white !important
+    }
+
+    .content-card::before {
+        background-color: white !important
+    }
+
+    .testimonials-item-title {
+        color: black !important;
+    }
+
+    .dlll {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+   
+    .delbutton {
+        color: white;
+    }
+
+
+</style>
+
+
+
+<!--
+   - #MAIN
+ -->
+
+
+<main>
+    @{
+        var CountPaid = 0;
+        var CountUnPaid = 0;
+        foreach (var y in Model.Item2)
+        {
+            if (y.PaymentStatus == true)
+            {
+                CountPaid++;
+
+            }
+            else
+            {
+                CountUnPaid++;
+            }
+        }
+
+    }
+    @Html.Action("_Oprofileuser")
+    <!--
+      - #SIDEBAR
+    -->
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+        <!--
+          - #NAVBAR
+        -->
+
+        <nav class="navbar" style="background-color: #F6783A ">
+
+            <ul class="navbar-list">
+
+
+
+                <li class="navbar-item">
+                    <button id="myinformaionbutton" class="navbar-link " data-nav-link>Resume</button>
+                </li>
+
+                <li class="navbar-item">
+                    <button id="reg" class="navbar-link active" data-nav-link="Registration">Registration</button>
+
+
+
+
+                </li>
+
+                <li class="navbar-item">
+                    <button id="Blog" class="navbar-link" data-nav-link>courses</button>
+                </li>
+
+
+
+            </ul>
+
+        </nav>
+
+
+
+
+
+        <!--
+          - #ABOUT
+        -->
+
+        <article class="about  " data-page="about" style="background-color: #020031">
+
+            <header>
+                <h2 class="h2 article-title">Courses</h2>
+            </header>
+
+            <section class="about-text">
+                <p>
+                    I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
+                    I enjoy
+                    turning complex problems into simple, beautiful and intuitive designs.
+                </p>
+
+                <p>
+                    My job is to build your website so that it is functional and user-friendly but at the same time attractive.
+                    Moreover, I
+                    add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
+                    across your
+                    message and identity in the most creative way. I created web design for many famous brand companies.
+                </p>
+            </section>
+
+
+            <!--
+              - service
+            -->
+
+            <section class="service">
+
+                <h3 class="h3 service-title">What i'm doing</h3>
+
+                <ul class="service-list">
+
+                    <li class="service-item">
+
+                        <div class="service-icon-box">
+                            <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+                        </div>
+
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Web design</h4>
+
+                            <p class="service-item-text">
+                                The most modern and high-quality design made at a professional level.
+                            </p>
+                        </div>
+
+                    </li>
+
+                    <li class="service-item">
+
+                        <div class="service-icon-box">
+                            <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                        </div>
+
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Web development</h4>
+
+                            <p class="service-item-text">
+                                High-quality development of sites at the professional level.
+                            </p>
+                        </div>
+
+                    </li>
+
+                    <li class="service-item">
+
+                        <div class="service-icon-box">
+                            <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                        </div>
+
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Mobile apps</h4>
+
+                            <p class="service-item-text">
+                                Professional development of applications for iOS and Android.
+                            </p>
+                        </div>
+
+                    </li>
+
+                    <li class="service-item">
+
+                        <div class="service-icon-box">
+                            <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+                        </div>
+
+                        <div class="service-content-box">
+                            <h4 class="h4 service-item-title">Photography</h4>
+
+                            <p class="service-item-text">
+                                I make high-quality photos of any category at a professional level.
+                            </p>
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!--
+              - testimonials
+            -->
+
+            <section class="testimonials">
+
+                <h3 class="h3 testimonials-title">Courses</h3>
+
+                <ul class="testimonials-list has-scrollbar">
+
+                    <li class="testimonials-item">
+                        <div class="content-card" data-testimonials-item>
+
+
+
+                            <h4 class="h4 testimonials-item-title" data-testimonials-title>Rienforcement Concrete</h4>
+
+                            <div class="testimonials-text" data-testimonials-text>
+                                <p>
+                                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                                    lot of experience
+                                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                                    consectetur adipiscing
+                                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                                </p>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="testimonials-item">
+                        <div class="content-card" data-testimonials-item>
+
+                            <figure class="testimonials-avatar-box">
+                                <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                            </figure>
+
+                            <h4 class="h4 testimonials-item-title" data-testimonials-title>Steel</h4>
+
+                            <div class="testimonials-text" data-testimonials-text>
+                                <p>
+                                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                                    lot of experience
+                                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                                    consectetur adipiscing
+                                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                                </p>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="testimonials-item">
+                        <div class="content-card" data-testimonials-item>
+
+                            <figure class="testimonials-avatar-box">
+                                <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                            </figure>
+
+                            <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
+
+                            <div class="testimonials-text" data-testimonials-text>
+                                <p>
+                                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                                    lot of experience
+                                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                                    consectetur adipiscing
+                                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                                </p>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="testimonials-item">
+                        <div class="content-card" data-testimonials-item>
+
+                            <figure class="testimonials-avatar-box">
+                                <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                            </figure>
+
+                            <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
+
+                            <div class="testimonials-text" data-testimonials-text>
+                                <p>
+                                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                                    lot of experience
+                                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                                    consectetur adipiscing
+                                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                                </p>
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+
+            </section>
+
+
+            <!--
+              - testimonials modal
+            -->
+
+            <div class="modal-container" data-modal-container>
+
+                <div class="overlay" data-overlay></div>
+
+                <section class="testimonials-modal">
+
+                    <button class="modal-close-btn" data-modal-close-btn>
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
+
+                    <div class="modal-img-wrapper">
+                        <figure class="modal-avatar-box">
+                            <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                        </figure>
+
+                        <img src="./assets/images/icon-quote.svg" alt="quote icon">
+                    </div>
+
+                    <div class="modal-content">
+
+                        <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
+
+                        <time datetime="2021-06-14">14 June, 2021</time>
+
+                        <div data-modal-text>
+                            <p>
+                                Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
+                                lot of experience
+                                and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
+                                consectetur adipiscing
+                                elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+            <!--
+              - clients
+            -->
+
+            <section class="clients">
+
+                <h3 class="h3 clients-title">Clients</h3>
+
+                <ul class="clients-list has-scrollbar">
+
+                    <li class="clients-item">
+                        <a href="#">
+                            <img src="./assets/images/logo-1-color.png" alt="client logo">
+                        </a>
+                    </li>
+
+                    <li class="clients-item">
+                        <a href="#">
+                            <img src="./assets/images/logo-2-color.png" alt="client logo">
+                        </a>
+                    </li>
+
+                    <li class="clients-item">
+                        <a href="#">
+                            <img src="./assets/images/logo-3-color.png" alt="client logo">
+                        </a>
+                    </li>
+
+                    <li class="clients-item">
+                        <a href="#">
+                            <img src="./assets/images/logo-4-color.png" alt="client logo">
+                        </a>
+                    </li>
+
+                    <li class="clients-item">
+                        <a href="#">
+                            <img src="./assets/images/logo-5-color.png" alt="client logo">
+                        </a>
+                    </li>
+
+                    <li class="clients-item">
+                        <a href="#">
+                            <img src="./assets/images/logo-6-color.png" alt="client logo">
+                        </a>
+                    </li>
+
+                </ul>
+
+            </section>
+
+        </article>
+
+
+
+
+        <!--
+          - #RESUME
+        -->
+
+        <article class="resume" data-page="resume" id="myinformaion" style="background-color: #020031">
+
+            <header>
+                <h2 class="h2 article-title">Resume</h2>
+            </header>
+            @foreach (var item in Model.Item2)
+            {
+
+                if (item.Student.Id == ViewBag.id)
+                {
+                    <section class="timeline">
+
+                        <div class="title-wrapper">
+                            <div class="icon-box">
+                                <ion-icon name="book-outline"></ion-icon>
+                            </div>
+
+                            <h3 class="h3">Education</h3>
+                        </div>
+
+                        <ol class="timeline-list">
+
+                            <li class="timeline-item">
+
+                                <h4 class="h4 timeline-item-title">High school </h4>
+
+                                <span>Avarge :</span>
+
+                                <p class="timeline-text">
+                                    @item.Student.Grad
+                                </p>
+
+                            </li>
+                            <li class="timeline-item">
+
+                                <h4 class="h4 timeline-item-title">Unica University</h4>
+
+                                <span>In Major :</span>
+
+                                <p class="timeline-text">
+                                    @item.Student.Major.Name
+                                </p>
+
+                            </li>
+
+
+
+                        </ol>
+
+                    </section>
+                    break;
+                }
+            }
+            <div class="title-wrapper">
+
+                <h3 class="h3">Edit Personal Info</h3><br />
+            </div>
+            @foreach (var item in Model.Item2)
+            {
+
+
+                if (item.Student.Id == ViewBag.id)
+                {
+
+                    using (Html.BeginForm("EditOne", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <input id="v1" name="v1" type="text" value="" class="form-control" placeholder="Name " /><br />
+                        <input id="v3" name="v3" type="text" value="" class="form-control" placeholder="Phone Number " /><br />
+                        <input type="file" name="pic" value="" accept=".png,.jpg" class="form-control" /><br />
+
+                        <input type="submit" value="edit" style="background-color: #f6783a;color:#020031;font-weight:bold;width:150px;height:40px;border-radius:15px" />
+
+                    }
+                    <section class="timeline">
+                    </section>
+
+
+                    break;
+                }
+            }
+
+
+
+
+
+
+        </article>
+
+
+
+
+
+
+
+        <!--
+          - #PORTFOLIO
+        -->
+
+        <article id="mainReg" class="Registration active" data-page="Registration" style="background-color: #020031">
+
+            <header>
+                <h2 class="h2 article-title">Schedule</h2>
+            </header>
+
+            <section class="projects">
+                @if (CountUnPaid > 0) { 
+                 <a class="btn" href="~/MainPay/Mainpayment" style="background-color:#F6783A ;color:white; float:right; margin:15px;">Pay</a>
+
+                <table class="table" style="color: #E0E0E4">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col"># Hour</th>
+                            <th scope="col">Section</th>
+                            <th scope="col">Days</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">action</th>
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Item2)
+                        {
+                            if (item.PaymentStatus == false && item.Student_ID == ViewBag.MainId)
+                            {
+
+                                <tr>
+
+                                    <td> @item.Subject_ID</td>
+                                    <td>@item.Subject.Name</td>
+                                    <td>@item.Subject.NumHour</td>
+                                    <td>@item.Section_ID</td>
+                                    <td>
+                                        @if (item.Section.SectionDay == "Sunday")
+                                        {
+
+                                            <p style="color:white;font-weight:bold">SUN-TUE-THU</p>
+
+
+
+                                        }
+                                        else
+                                        {
+                                            <p style="color:white;font-weight:bold">MON-WED</p>
+
+                                        }
+                                    </td>
+
+
+
+
+                                    <td> @item.Section.SectionTime:00_@Convert.ToInt32(@item.Section.SectionTime + 1):00</td>
+                                    <td>Not Paid</td>
+                                    <td style="color:black"><span class="btn btn-sm dlll" style="background-color:red;color:white" > @*@Html.ActionLink("delete", "del", "Student", new { ID = item.SubjectRegistrations_ID, @class = "delbutton" }, null)*@ 
+                                         
+  
+  
+                                         <button onclick="showAlert(@item.SubjectRegistrations_ID)">delete </button>
+                                         
+                                         </span> </td>
+                                </tr>
+
+
+
+                            }
+
+                        }
+
+
+                    </tbody>
+                </table>}
+else
+            {
+                <h4 style="color:white;text-align:center">You dont have unpaid Courses</h4>
+                <div class="container" style="text-align:center">
+                    <img src="~/Content/img/SEO-pana.png" style="width:30%; margin-top: 20px;margin-left:290px"/>
+
+                </div>
+
+            }
+            </section>
+
+            <section class="projects">
+
+
+
+                <div class="filter-select-box">
+
+                    @*very important sectio*@
+
+                    <button class="filter-select" data-select>
+
+                        <div class="select-value" data-selecct-value>Select category</div>
+
+                        <div class="select-icon">
+                            <ion-icon name="chevron-down"></ion-icon>
+                        </div>
+
+                    </button>
+                    @*very important sectio*@
+
+
+
+                </div>
+                <header>
+                    <h2 class="h2 article-title" style="margin-top:55px">Available Courses</h2>
+                </header>
+                @Html.Action("_showSubject")
+
+            </section>
+
+        </article>
+
+
+
+
+
+        <!--
+          - #coursesdone
+        -->
+
+        <article id="crazy" class="blog" data-page="blog" style="background-color: #020031">
+
+            <header>
+                <h2 class="h2 article-title">My Courses</h2>
+            </header>
+
+            <section class="blog-posts">
+
+                @if (CountPaid > 0) { 
+                <table class="table" style="color: #E0E0E4">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Course Name</th>
+                            <th scope="col"># Hour</th>
+                            <th scope="col">Section</th>
+                            <th scope="col">Days</th>
+                            <th scope="col">Time</th>
+
+
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model.Item2)
+                        {
+                            if (item.PaymentStatus == true && item.Student_ID == ViewBag.MainId)
+                            {
+
+                                <tr>
+
+                                    <td> @item.Subject_ID</td>
+                                    <td>@item.Subject.Name</td>
+                                    <td>@item.Subject.NumHour</td>
+                                    <td>@item.Section_ID</td>
+                                    <td>
+                                        @if (item.Section.SectionDay == "Sunday")
+                                        {
+
+                                            <p style="color:white;font-weight:bold">SUN-TUE-THU</p>
+
+
+
+                                        }
+                                        else
+                                        {
+                                            <p style="color:white;font-weight:bold">MON-WED</p>
+
+                                        }
+                                    </td>
+
+
+
+
+                                    <td> @item.Section.SectionTime:00_@Convert.ToInt32(@item.Section.SectionTime + 1):00</td>
+
+
+                                </tr>
+
+
+
+                            }
+
+                        }
+
+
+                    </tbody>
+                </table>}
+             else
+            {
+                <h4 style="color:white;text-align:center">you dont have courses</h4>
+            }
+
+
+
+
+
+
+
+
+            </section>
+
+        </article>
+
+
+
+
+
+        <!--
+          - #CONTACT
+        -->
+
+        <article class="contact" data-page="contact" style="background-color: #020031">
+
+            <header>
+                <h2 class="h2 article-title">Contact</h2>
+            </header>
+
+            <section class="mapbox" data-mapbox>
+                <figure>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+                            width="400" height="300" loading="lazy"></iframe>
+                </figure>
+            </section>
+
+            <section class="contact-form">
+
+                <h3 class="h3 form-title">Contact Form</h3>
+
+                <form action="#" class="form" data-form>
+
+                    <div class="input-wrapper">
+                        <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+                        <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+                    </div>
+
+                    <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+                    <button class="form-btn" type="submit" disabled data-form-btn>
+                        <ion-icon name="paper-plane"></ion-icon>
+                        <span>Send Message</span>
+                    </button>
+
+                </form>
+
+            </section>
+
+        </article>
+
+    </div>
+
+</main>
+
+
+
+
+
+
+<!--
+  - custom js link
+-->
+
+<script src="~/vcard-personal-portfolio-master/assets/js/script.js"></script>
+<!--
+  - ionicon link
+-->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+    const regButton = document.getElementById('reg');
+    const blog = document.getElementById('Blog');
+    const courses = document.getElementById('crazy');
+    const mainreg = document.getElementById('mainReg');
+    const myinformaion = document.getElementById('myinformaion');
+    const myinformaionbutton = document.getElementById('myinformaionbutton');
+
+    regButton.addEventListener('click', () => {
+
+        regButton.classList.add("active");
+        courses.style.display = "none"
+        myinformaion.style.display = "none"
+        mainreg.style.display = "block"
+
+    });
+
+    blog.addEventListener('click', () => {
+
+        regButton.classList.remove("active");
+        blog.classList.add("active");
+        mainreg.style.display = "none"
+        myinformaion.style.display = "none"
+        courses.style.display = "block"
+
+    });
+    myinformaionbutton.addEventListener('click', () => {
+
+        regButton.classList.remove("active");
+        myinformaionbutton.classList.add("active");
+        mainreg.style.display = "none"
+        courses.style.display = "none"
+        myinformaion.style.display = "block"
+
+    });
+
+  
+        function showAlert(id) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    );
+                    // Perform the action here
+                    window.location.href = '/Student/del/' + id;
+                }
+            });
+
+    }
+
+
+
+
+
+</script>
+

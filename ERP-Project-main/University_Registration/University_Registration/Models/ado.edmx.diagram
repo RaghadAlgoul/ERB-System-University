@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c29bde9a92346719f55de16b7519d5a" Name="Diagram1" ZoomLevel="73">
+        <EntityTypeShape EntityType="ERP_SystemModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="4.25" />
+        <EntityTypeShape EntityType="ERP_SystemModel.AspNetRole" Width="1.5" PointX="3.75" PointY="4.5" />
+        <EntityTypeShape EntityType="ERP_SystemModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="17.625" />
+        <EntityTypeShape EntityType="ERP_SystemModel.AspNetUserLogin" Width="1.5" PointX="3" PointY="15.125" />
+        <EntityTypeShape EntityType="ERP_SystemModel.AspNetUserRole" Width="1.5" PointX="6" PointY="8.25" />
+        <EntityTypeShape EntityType="ERP_SystemModel.AspNetUser" Width="1.5" PointX="0.75" PointY="7.25" />
+        <EntityTypeShape EntityType="ERP_SystemModel.Facility" Width="1.5" PointX="1.5" PointY="21.25" />
+        <EntityTypeShape EntityType="ERP_SystemModel.Major" Width="1.5" PointX="0.75" PointY="2.875" />
+        <EntityTypeShape EntityType="ERP_SystemModel.Section" Width="1.5" PointX="6" PointY="1.125" />
+        <EntityTypeShape EntityType="ERP_SystemModel.Student" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="ERP_SystemModel.SubjectRegistration" Width="1.5" PointX="8.25" PointY="7.875" />
+        <EntityTypeShape EntityType="ERP_SystemModel.Subject" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ERP_SystemModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.25" />
+        <AssociationConnector Association="ERP_SystemModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <AssociationConnector Association="ERP_SystemModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ERP_SystemModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ERP_SystemModel.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="ERP_SystemModel.FK__Students__Id__4E88ABD4" />
+        <AssociationConnector Association="ERP_SystemModel.FK__Majors__Facility__48CFD27E" />
+        <AssociationConnector Association="ERP_SystemModel.FK__Students__Major___5070F446" />
+        <AssociationConnector Association="ERP_SystemModel.FK__Subjects__Major___4BAC3F29" />
+        <AssociationConnector Association="ERP_SystemModel.FK__Sections__Subjec__534D60F1" />
+        <AssociationConnector Association="ERP_SystemModel.FK__SubjectRe__Secti__59063A47" />
+        <AssociationConnector Association="ERP_SystemModel.FK__SubjectRe__Stude__5629CD9C" />
+        <AssociationConnector Association="ERP_SystemModel.FK__SubjectRe__Subje__571DF1D5" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

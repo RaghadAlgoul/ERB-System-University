@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<University_Registration.Models.Section>
+
+
+
+<ul class="project-list">
+    @{
+        var distinctsubject = Model.Select(c => c.Subject_ID).Distinct();
+    }
+    @foreach (var Sub in distinctsubject)
+    {
+        var item = Model.First(i => i.Subject_ID == Sub);
+
+        <li class="project-item  active" data-filter-item data-category="web development">
+            <a href="https://localhost:44379/Student/sections?id=@item.Subject_ID">
+
+                <figure class="project-img">
+                    <div class="project-item-icon-box">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+
+                </figure>
+
+
+                <h1 class="project-title" style="font-weight:bold;font-size:23px">@item.Subject.Name</h1>
+                
+
+
+
+            </a>
+        </li>
+
+    }
+
+
+
+</ul>

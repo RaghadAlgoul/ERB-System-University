@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Unica - University Template</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Unica University Template">
+    <meta name="keywords" content="event, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="../Content/img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a8b56cb52b.js" crossorigin="anonymous"></script>
+
+    <!-- Stylesheets -->
+
+
+    <link rel="stylesheet" href="../Content/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../Content/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../Content/css/themify-icons.css" />
+    <link rel="stylesheet" href="../Content/css/magnific-popup.css" />
+    <link rel="stylesheet" href="../Content/css/animate.css" />
+    <link rel="stylesheet" href="../Content/css/owl.carousel.css" />
+    <link rel="stylesheet" href="../Content/css/style.css" />
+
+
+</head>
+<body>
+    <!-- Courses section -->
+    <section class="courses-section spad">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>OUR FACILITIES</h3>
+                <p>Building a better world, one course at a time</p>
+            </div>
+            <div class="row">
+                <!-- course item -->
+                <label id="tb" style="display:flex;flex-direction:row;flex-wrap:nowrap"></label>
+
+            </div>
+        </div>
+    </section>
+    <!-- Courses section end-->
+    <script>
+    async function read() {
+            try {
+                const api = "https://localhost:44381/api/Facilities";
+                const res = await fetch(api);
+                const data = await res.json();
+
+                console.log(data);
+                readdata(data);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        function readdata(data) {
+            for (let i = 0; i < data.length; i++) {
+
+                document.getElementById('tb').innerHTML += `<div class="col-lg-4 col-md-6 course-item">
+                            <div class="course-thumb">
+                                <img src="../../Images/`+ data[i].Facility_Image + `" alt="">
+                                <div class="course-cat">
+                                    <span>`+ data[i].Name + `</span>
+                                </div>
+                            </div>
+                            <div class="course-info">
+                                <h4>`+ data[i].Description + `</span></h4>
+                                <h4 class="cource-price"><a style="color:#f6783a" href="/mainHome/coarses/`+ data[i].Facility_ID + `">Courses</a></h4>
+                            </div>`;
+
+
+            }
+        }
+        read();</script>
+</body>
+</html>
